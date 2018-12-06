@@ -7,13 +7,17 @@ using namespace std;
 //This program reads in information for items (UPC code and descriptions) and stores it into an array. It 
 //then allows the user to input UPC codes, and returns the corresponding item description if there is one. The program
 //also returns the time it took to complete the queuery.
+//Program now allows user to decide how many items to load
 
 int main(){
     UPCArrayFunctions upcaf; 
-    UPC dB[130000]; //Creates array to hold UPC objects
-    int size=upcaf.readData(dB); //Reads the data in from the file, and returns number of items entered
     cout<<"Welcome to Barcode Array Scanner. Enter UPC barcode to retrieve data for an item."<<endl;
     cout<<"Enter Q to leave the program."<<endl;
+    cout<<"How much of the database would you like to load at this time?"<<endl;
+    int numb;
+    cin>>numb;
+    UPC dB[130000]; //Creates array to hold UPC objects
+    int size=upcaf.readData(dB,numb); //Reads the data in from the file, and returns number of items entered
     string entry;
     cout<<"Please enter a UPC code: "<<endl;
     cin>>entry; //Takes users first input code

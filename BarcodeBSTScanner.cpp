@@ -7,12 +7,16 @@ using namespace std;
 //This program reads in information for items (UPC code and descriptions) and stores it into a binary search tree. It 
 //then allows the user to input UPC codes, and returns the corresponding item description if there is one. The program
 //also returns the time it took to complete the queuery.
+//Program now allows user to decide how many items to load
 
 int main(){
     UPCBSTFunctions<UPC> UPCTree;
-    UPCTree.readData(UPCTree); //Reads data from the file into the tree
     cout<<"Welcome to Barcode BST Scanner. Enter UPC barcode to retrieve data for an item."<<endl;
     cout<<"Enter Q to leave the program."<<endl;
+    cout<<"How much of the database would you like to load at this time?"<<endl;
+    int numb;
+    cin>>numb;
+    UPCTree.readData(UPCTree, numb); //Reads data from the file into the tree
     string entry;
     cout<<"Please enter a UPC code: "<<endl;
     cin>>entry; //Takes first user entered code

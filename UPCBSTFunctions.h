@@ -15,7 +15,7 @@ class UPCBSTFunctions: public BinarySearchTree<T>{
         T search(string key){
             return search(this->root,key);
         }
-        void readData(UPCBSTFunctions<UPC>&); //Creates BST from data in a file
+        void readData(UPCBSTFunctions<UPC>&, int); //Creates BST from data in a file
     private:
         //The private search function which uses the Binary Trees Root
         T search(node<T>*, string);
@@ -38,12 +38,12 @@ T UPCBSTFunctions<T>::search(node<T>* p, string key){
 //a binary search tree. 
 //Entire file was not written into tree due to hardware constraints.
 template <class T>
-void UPCBSTFunctions<T>::readData(UPCBSTFunctions<UPC>& dB){
+void UPCBSTFunctions<T>::readData(UPCBSTFunctions<UPC>& dB, int numb){
     string id, data;
     ifstream upcfile;
     upcfile.open("upc_corpus.txt"); //opens the file
     getline(upcfile, id); //Gets past first line, which holds header info
-    for(int i=0; i<=120000;i++){ //Gets first 120000 entries
+    for(int i=0; i<=numb;i++){ //Gets first 120000 entries
         getline(upcfile,id, ',');
         getline(upcfile, data);
         UPC temp(id,data); //Takes data from the line to create temporary UPC object
