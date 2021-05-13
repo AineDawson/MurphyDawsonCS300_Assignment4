@@ -1,1 +1,1 @@
-# MurphyDawsonCS300_Assignment4
+This program is meant to test the difference in efficiency of a Binary Search Tree (BST) and an array. It does this by loading a list of items to both an array and a BST and having the user search for items. It then displays the time it took to find the items for both.
